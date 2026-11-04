@@ -1,0 +1,20 @@
+/* 3D floating tech icons placed randomly in the hero side gutters */
+#hero{position:relative}
+.tech{position:absolute;inset:0;z-index:1;perspective:700px;pointer-events:none;--s:72px}
+.tech[hidden]{display:none}
+.tc{position:absolute;width:var(--s);pointer-events:auto;animation:tf 5s ease-in-out infinite alternate}
+@keyframes tf{from{transform:translateY(-12px)}to{transform:translateY(14px)}}
+.ti{position:relative;width:var(--s);height:var(--s);display:grid;place-items:center;border-radius:24%;cursor:pointer;transform-style:preserve-3d;
+background:linear-gradient(145deg,rgba(255,255,255,.18),rgba(17,24,39,.9) 70%);border:1px solid rgba(255,255,255,.22);
+transform:translate(var(--px,0px),var(--py,0px)) rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg)) scale(var(--sc,1));
+transition:transform .18s ease-out,box-shadow .3s;box-shadow:0 14px 28px rgba(0,0,0,.55),0 0 18px -4px var(--c)}
+.ti::before{content:"";position:absolute;inset:0;border-radius:inherit;background:var(--c);filter:brightness(.4);transform:translateZ(-18px);z-index:-1}
+.tc:hover .ti{--sc:1.3;box-shadow:0 20px 40px rgba(0,0,0,.6),0 0 34px 4px var(--c);border-color:var(--c)}
+.ic{width:56%;height:56%;display:grid;place-items:center;font:800 clamp(18px,2vw,30px)/1 "Inter",system-ui,sans-serif;color:#fff;transform:translateZ(26px);filter:drop-shadow(0 6px 6px rgba(0,0,0,.5))}
+.ic img{width:100%;height:100%;object-fit:contain}
+.ic.pop{animation:pop .7s cubic-bezier(.3,1.6,.5,1)}
+@keyframes pop{from{transform:translateZ(26px) rotate(0)}to{transform:translateZ(26px) rotate(360deg) scale(1.15)}}
+.nm{margin-top:10px;text-align:center;font-size:12px;color:var(--t2);transition:.25s;white-space:nowrap}
+.tc:hover .nm{color:var(--cy);text-shadow:0 0 10px var(--cy);transform:scale(1.15)}
+@media(max-width:1099px){.tech{display:none}}
+@media(prefers-reduced-motion:reduce){.tc{animation:none}}
